@@ -4,7 +4,7 @@
     
     Go to your CMD prompt or Terminal and Type the Following:
           
-          pip install -r requirments.txt
+          pip install -r requirements.txt
 
 Thats it for the installation of the prerequisites , now you are ready to go.
 
