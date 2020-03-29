@@ -14,4 +14,4 @@ Thats it for the installation of the prerequisites , now you are ready to go.
         python search.py <KEYWORD> <URL>
     
     EXAMPLE:
-        python search.py 'chicken wings' https://tasty.com
+        python search.py 'chicken wings' https://tasty.co
