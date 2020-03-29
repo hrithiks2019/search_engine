@@ -6,11 +6,12 @@
           
           pip install -r requirments.txt
 
-    Thats it for the installation of the prerequisites , now you are ready to go.
+Thats it for the installation of the prerequisites , now you are ready to go.
 
 
 #Usage:
     
-    python search.py <KEYWORD> <URL>
-EXAMPLE:
-    python search.py 'ruby go' https://jorin.me
+        python search.py <KEYWORD> <URL>
+    
+    EXAMPLE:
+        python search.py 'ruby go' https://jorin.me
