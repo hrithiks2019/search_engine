@@ -1,0 +1,5 @@
+regex
+urllib3
+collections2
+bs4
+numpy
