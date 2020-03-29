@@ -1,25 +1,6 @@
-'''
-This is a demonstration of how to implement a search engine.
-Only intended for educational use.
-
-All options are configured at the top of the file.
-The script searches on a given website for given queries and
-outputs the ranked results.
-
-First, all subpages are crawled and parsed.
-Next, the PageRank is calculated based
-on the link structure of the pages.
-Then an index of all terms is created,
-weighted (using tf-idf) and normalized.
-Last, the cosine distance between each query
-and each document is calculated.
-The order of the search result is based on a combination
-of the PageRank and cosine similarity.
-
-Example:
+'''Example:
     python search.py 'ruby go' https://jorin.me
 '''
-
 import re
 import argparse
 from urllib.parse import urljoin, urlparse
@@ -275,13 +256,6 @@ def normalize_index(index):
 
 
 def doc_lengths(index):
-    '''
-    Returns a dict with document urls as keys
-    and vector lengths as values.
-
-    The length is calculated using the vector of weights
-    for the terms in the document.
-    '''
     doc_vectors = defaultdict(list)
     for docs in index.values():
         for url, weight in docs:
@@ -289,17 +263,8 @@ def doc_lengths(index):
     return {url: np.linalg.norm(doc) for url, doc in doc_vectors.items()}
 
 
-# Search & Scoring
 
 def cosine_similarity(index, N, query):
-    '''
-    query is a string of terms.
-
-    Returns a sorted list of tuples (url, score).
-
-    Score is calculated using the cosine distance
-    between document and query.
-    '''
     scores = defaultdict(int)
     terms = query.split()
     qw = {t: tf_idf(1, N, len(index[t])) for t in terms if t in index}
@@ -312,11 +277,6 @@ def cosine_similarity(index, N, query):
 
 
 def combined_search(index, N, rank, query):
-    '''
-    Returns a sorted list of tuples (url, score).
-
-    Score is the product of the cosine similarity and the PageRank.
-    '''
     scores = cosine_similarity(index, N, query)
     combined = [(doc, score * rank[doc]) for doc, score in scores]
     return sorted(combined, key=lambda x: x[1], reverse=True)
@@ -330,6 +290,3 @@ def print_combined_search(index, N, rank, query):
 
 if __name__ == "__main__":
     main()
-×
-Drag and Drop
-The image will be downloaded
