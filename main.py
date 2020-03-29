@@ -1,6 +1,3 @@
-'''Example:
-    python search.py 'ruby go' https://jorin.me
-'''
 import re
 import argparse
 from urllib.parse import urljoin, urlparse
